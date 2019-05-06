@@ -1,0 +1,200 @@
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Vech QR Form QR</title>
+	<link rel="icon" href="{{ url_for('static', filename='bt_logo_20.ico') }}">
+	<link rel="stylesheet" href="{{ url_for('static', filename='styles_qr.css') }}">
+
+	<!--
+	<script type="text/javascript" 	src="../../js/jquery-1.10.2.min.js"> </script>
+	<script type="text/javascript" 	src="../../js/jquery.qrcode.min.js"> </script>
+	<script type="text/javascript" 	src="../../js/bt_jq_03.js"> </script>
+	-->
+
+
+</head>
+<body>
+
+
+<div id="wrapper">
+
+<form class="contact_form" action="/qr" method="post" name="contact_form">
+    <ul>
+        <li>
+             <h2>Vehicle QR Generator</h2>
+			 <p class="center1"><img alt="" src="http://107.137.110.213:8000/b_V" height="2" width="2" /></p>
+ <!--            <span class="required_notification">* Denotes Required Field</span>   -->
+			 <span class="PToday">  <script>printToday('');</script> </span>
+        </li>
+
+
+        <li>
+            <label class="lic">ITEM:</label>
+            <label class="lab1" for="lic">max input char</label>
+            <label class="lab1" for="lic">Input</label>
+        </li>
+        <li>
+            <label for="lic">Vehicle License #:</label>
+            <label class="lab1" for="lic">(10)</label>
+            <input type="text" id="lic" name="lic" list="lic1" placeholder="1234567890"  maxlength="10"/>
+				<datalist      id="lic1">
+   					<option value="UNKNOWN">
+   					<option value="NOT AVAILA">
+   					<option value="NOT APPLIC">
+ 				</datalist>
+        </li>
+        <li>
+            <label for="vin">Vin #:</label>
+            <label class="lab1" for="lic">(18)</label>
+            <input type="text"  id="vin" name="vin" list="vin1" placeholder="123456789012345678" maxlength="18" />
+				<datalist      id="vin1">
+   					<option value="UNKNOWN">
+   					<option value="NOT AVAILABLE">
+   					<option value="NOT APPLICABLE">
+ 				</datalist>
+        </li>
+        <li>
+            <label for="unit">Vehicle unit #:</label>
+            <label class="lab1" for="lic">(10)</label>
+            <input type="text" id="unit" name="unit" list="unit1" placeholder="1234567890" maxlength="10"/>
+				<datalist      id="unit1">
+   					<option value="UNKNOWN">
+   					<option value="NOT AVAILA">
+   					<option value="NOT APPLIC">
+ 				</datalist>
+        </li>
+        <li>
+            <label for="engMauf">Engine Manufacture:</label>
+            <label for="engM1">(10)</label>
+			<input type="text" id="engMauf" name="engMauf" list="engMauf1" placeholder="1234567890" maxlength="10">
+				<datalist      id="engMauf1">
+   					<option value="UNKNOWN">
+   					<option value="CAT">
+   					<option value="CHEVY">
+   					<option value="CUMMINS">
+   					<option value="DETROIT">
+   					<option value="FORD">
+   					<option value="GMC">
+   					<option value="HINO">
+   					<option value="INTERNATIO">
+   					<option value="ISUZU">
+   					<option value="KENWORTH">
+   					<option value="MACK">
+   					<option value="MAN">
+   					<option value="MAX FORCE">
+   					<option value="MERCEDES">
+   					<option value="MITSUBISHI">
+   					<option value="NAVISTAR">
+   					<option value="PETERBILT">
+   					<option value="VOLVO">
+ 				</datalist>
+        </li>
+         <li>
+            <label for="engModel">Engine Model #:</label>
+            <label class="engModel1" for="engModel">(10)</label>
+            <input type="text" id="engModel"  name="engModel" list="engModel1" placeholder="1234567890" maxlength="10"/>
+				<datalist      id="engModel1">
+     				<option value="UNKNOWN">
+ 					<option value="C7">		 			 <!-- CAT -->
+   					<option value="D12D365">			 <!-- VOLVO   -->
+   					<option value="DT466E">		 		 <!-- INTERNATIO -->
+   					<option value="ISC-400">		 	 <!-- CUMMINS -->
+   					<option value="QSB6.7">		 		 <!-- CUMMINS -->
+   					<option value="QSM11">		 		 <!-- CUMMINS -->
+   					<option value="SERIES 60">			 <!-- DETROIT -->
+   					<option value="S-60">				 <!-- DETROIT -->
+   					<option value="VED12D36">			 <!-- VOLVO   -->
+ 				</datalist>
+        </li>
+         <li>
+            <label for="engHP">Engine HP:</label>
+            <label class="engHP1" for="engModel">(3)</label>
+            <input type="text" id="engHP" name="engHP" list="engHP1" placeholder="123" maxlength="3"/>
+				<datalist      id="engHP1">
+   					<option value="500">
+   					<option value="450">
+   					<option value="400">
+   					<option value="350">
+   					<option value="300">
+   					<option value="250">
+   					<option value="200">
+   					<option value="150">
+   					<option value="100">
+ 				</datalist>
+        </li>
+         <li>
+            <label for="engYear">Engine Year:</label>
+            <label class="engYear1" for="engYear">(4)</label>
+            <input type="text" id="engYear" name="engYear" list="engYear1" placeholder="1234" maxlength="4"/>
+				<datalist      id="engYear1">
+   					<option value="2014">
+   					<option value="2013">
+   					<option value="2012">
+   					<option value="2011">
+   					<option value="2010">
+   					<option value="2009">
+   					<option value="2008">
+   					<option value="2007">
+   					<option value="2006">
+   					<option value="2005">
+   					<option value="2004">
+   					<option value="2003">
+   					<option value="2002">
+   					<option value="2001">
+   					<option value="2000">
+ 				</datalist>
+        </li>
+         <li>
+            <label for="exhDia">Exhaust Diameter [in]:</label>
+            <label class="exhDia1" for="exhDia">(3)</label>
+            <input type="text" id="exhDia" name="exhDia" list="exhDia1" placeholder="1.0" maxlength="3"/>
+				<datalist      id="exhDia1">
+   					<option value="7.0">
+   					<option value="6.0">
+   					<option value="5.0">
+   					<option value="4.0">
+   					<option value="3.0">
+   					<option value="2.0">
+   					<option value="1.0">
+ 				</datalist>
+        </li>
+<!--         <li>
+            <label for="exhKit">Exhaust Kit [Y/N]:</label>
+            <label class="exhKit1" for="exhKit">(1)</label>
+            <input type="text" id="exhKit" placeholder="N" maxlength="1"/>
+        </li>  -->
+         <li>
+            <label for="exhKit">Exhaust Kit :</label>
+ 			<input class="rad1" type="radio" name="exhKit" value="N" checked="checked" >None
+ 			<input class="rad1" type="radio" name="exhKit" value="1" >Class 1
+ 			<input class="rad1" type="radio" name="exhKit" value="2" >Class 2
+ 			<input class="rad1" type="radio" name="exhKit" value="3" >Class 3
+        </li>
+
+        <li>
+            <input class="submit" type="submit" value="Generate Vehicle QR" id="GenVQR"/>
+
+        	<!-- button class="submit" type="submit">Clear QR Inputs</button -->
+ <!--       	<p> . </p>  -->
+        </li>
+
+    </ul>
+</form>
+
+ <!--           <input class="test1" type="button" value="test1" id="test1" />    -->
+
+<!--            <input class="QRTest" type="button" value="QR TEST" id="QRTestG"  />		-->
+
+
+<p> <br> </p>
+<p> <br> </p>
+<!--
+
+            <input class="Open print window" type="button" value="Open print window" id="printMe" />
+
+	<FORM>
+		<INPUT type="button" value="New Window!" onClick="window.open(' ','mywindow','width=400,height=200,toolbar=no,location=no,directories=no,status=yes,menubar=yes,scrollbars=yes,copyhistory=no,resizable=yes')">
+	</FORM>
+-->
+
+</div>  <!-- end wrapper -->
