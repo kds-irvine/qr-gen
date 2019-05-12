@@ -39,4 +39,4 @@ def qr():
     return render_template("qr.html",qr=qrval), 200, {'Content-Type': 'text/html'}
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0',port=9000,debug=False)
+    app.run(host='0.0.0.0',port=9100,debug=False)

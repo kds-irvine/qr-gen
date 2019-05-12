@@ -1,1 +1,1 @@
-docker build -t qr .
+sudo docker build -t qr .

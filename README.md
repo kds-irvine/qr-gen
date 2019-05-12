@@ -9,8 +9,8 @@ docker build -t qr .
 
 To run:
 ```
-docker run -it -p 9000:9000 qr
+docker run -it -p 9100:9100 qr
 ```
 
-The page will be available at http://localhost:9000
+The page will be available at http://localhost:9100
 

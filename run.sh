@@ -1,1 +1,1 @@
-docker run -it -p 9000:9000 qr
+sudo docker run -it -p 9100:9100 qr

@@ -4,7 +4,7 @@ COPY app .
 
 RUN pip install -r requirements.txt
 
-expose 9000
+expose 9100
 
 CMD [ "python", "-u", "run.py" ]
 
