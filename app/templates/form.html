@@ -5,26 +5,54 @@
 	<link rel="icon" href="{{ url_for('static', filename='bt_logo_20.ico') }}">
 	<link rel="stylesheet" href="{{ url_for('static', filename='styles_qr.css') }}">
 
-	<!--
-	<script type="text/javascript" 	src="../../js/jquery-1.10.2.min.js"> </script>
-	<script type="text/javascript" 	src="../../js/jquery.qrcode.min.js"> </script>
-	<script type="text/javascript" 	src="../../js/bt_jq_03.js"> </script>
-	-->
+	<script
+	src="https://code.jquery.com/jquery-3.4.1.min.js"
+	integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+	crossorigin="anonymous"></script>
 
+	<script>
+		$(function() {
+			document.getElementById("GenVQR").addEventListener("click", function(event){
+  				event.preventDefault()
+			});
+			document.getElementById("dataview").style.visibility = 'hidden';
 
+			$('#GenVQR').click(function() {
+				var data = $('#data').serialize();
+				$.ajax({
+  					type : 'POST',
+  					url : "{{url_for('qrstr')}}",
+  					data : data,
+					success: function(res) {
+
+					 $("#dataview").attr('src', 'data:image/png;base64,' + res);
+						document.getElementById("dataview").style.visibility = 'visible';
+					},
+					error: function() {
+						console.log('error');
+					document.getElementById("dataview").style.visibility = 'hidden';
+					}
+				});
+			});
+		});
+	</script>
 </head>
 <body>
+
+	<center>
+<table border=0>
+	<tr><td>
 
 
 <div id="wrapper">
 
-<form class="contact_form" action="/qr" method="post" name="contact_form">
+<form class="contact_form" id="data" name="contact_form">
     <ul>
         <li>
              <h2>Vehicle QR Generator</h2>
 			 <p class="center1"><img alt="" src="http://107.137.110.213:8000/b_V" height="2" width="2" /></p>
- <!--            <span class="required_notification">* Denotes Required Field</span>   -->
-			 <span class="PToday">  <script>printToday('');</script> </span>
+ <!--            <span class="required_notification">* Denotes Required Field</span>   
+			 <span class="PToday">  <script>printToday('');</script> </span> -->
         </li>
 
 
@@ -198,3 +226,9 @@
 -->
 
 </div>  <!-- end wrapper -->
+</td>
+<td>
+		<img id="dataview" src="{{ url_for('static', filename='spacer.png') }}" />
+</td></tr>
+</table>
+</center>
